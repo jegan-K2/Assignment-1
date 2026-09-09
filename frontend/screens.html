@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Screen | Showlix</title>
+    <meta name="description" content="Select a screen for your movie booking.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Showlix</a>
+        <nav class="nav-links">
+            <a href="index.html" data-t="home">Home</a>
+            <a href="#" id="langToggleBtn" style="font-size:0.85rem; opacity:0.8;">🌐</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="screenMovieHeader" style="display:flex; gap:20px; align-items:center; margin-bottom:30px; background:var(--card-bg); padding:20px; border-radius:15px; border:1px solid var(--border-subtle);">
+            <img id="screenMoviePoster" src="" alt="Movie" style="width:100px; border-radius:10px;">
+            <div>
+                <h2 id="screenMovieTitle">Movie Title</h2>
+                <p id="screenTheatreName" style="color:var(--primary); font-weight:600;"></p>
+            </div>
+        </div>
+
+        <h2 class="section-title" data-t="selectScreen">Select Screen</h2>
+        <div id="screensList">
+            <!-- Screens dynamic list -->
+            <p data-t="loadingScreens">Loading screens...</p>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadScreens();
+        });
+    </script>
+</body>
+</html>

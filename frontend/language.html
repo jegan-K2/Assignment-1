@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Language | Showlix</title>
+    <meta name="description" content="Choose your preferred language for Showlix - Tamil Nadu's premier movie ticket booking platform.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Extra sparkle for language page only */
+        .lang-page {
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(225, 29, 72, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(251, 191, 36, 0.03) 0%, transparent 50%),
+                var(--bg-color);
+        }
+        .lang-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .lang-divider::before, .lang-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-glass), transparent);
+        }
+        .lang-tagline {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 40px;
+            letter-spacing: 0.5px;
+        }
+        .lang-tagline span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-page">
+        <div class="lang-container">
+            <a href="#" class="logo" style="justify-content:center;">
+                🎬 Showlix
+            </a>
+            <p class="lang-subtitle">Select your preferred language<br>மொழியைத் தேர்ந்தெடுக்கவும்</p>
+            
+            <div class="lang-options">
+                <div class="lang-card" id="langTamil" onclick="selectLanguage('ta')">
+                    <span class="lang-icon">🎬</span>
+                    <div class="lang-name">தமிழ்</div>
+                    <div class="lang-native">Tamil</div>
+                </div>
+                <div class="lang-card" id="langEnglish" onclick="selectLanguage('en')">
+                    <span class="lang-icon">🎥</span>
+                    <div class="lang-name">English</div>
+                    <div class="lang-native">ஆங்கிலம்</div>
+                </div>
+            </div>
+
+            <p class="lang-tagline">Powered by <span>Showlix</span> — Tamil Nadu's Cinema Booking Platform</p>
+        </div>
+    </div>
+
+    <script>
+        // If language already chosen, skip this page
+        if (localStorage.getItem('language')) {
+            window.location.href = 'index.html';
+        }
+
+        function selectLanguage(lang) {
+            localStorage.setItem('language', lang);
+            
+            // Visual feedback
+            const cards = document.querySelectorAll('.lang-card');
+            cards.forEach(c => {
+                c.style.opacity = '0.4';
+                c.style.transform = 'scale(0.95)';
+            });
+            
+            const selected = lang === 'ta'
+                ? document.getElementById('langTamil')
+                : document.getElementById('langEnglish');
+            
+            selected.style.opacity = '1';
+            selected.style.transform = 'translateY(-10px) scale(1.06)';
+            selected.style.borderColor = '#e11d48';
+            selected.style.boxShadow = '0 20px 60px rgba(225, 29, 72, 0.4)';
+            
+            // Page fade-out transition
+            setTimeout(() => {
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+            }, 400);
+        }
+    </script>
+</body>
+</html>

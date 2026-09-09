@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Theatre | Showlix</title>
+    <meta name="description" content="Choose your preferred theatre and showtime.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Showlix</a>
+        <nav class="nav-links">
+            <a href="index.html" data-t="home">Home</a>
+            <a href="#" id="langToggleBtn" style="font-size:0.85rem; opacity:0.8;">🌐</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="theatreMovieHeader" style="display:flex; gap:20px; align-items:center; margin-bottom:30px; background:var(--card-bg); padding:20px; border-radius:15px; border:1px solid var(--border-subtle);">
+            <img id="theatreMoviePoster" src="" alt="Movie" style="width:100px; border-radius:10px;">
+            <div>
+                <h2 id="theatreMovieTitle">Movie Title</h2>
+                <p id="theatreLoc" style="color:var(--text-muted);"></p>
+            </div>
+        </div>
+        <h2 class="section-title" data-t="availableTheatres">Available Theatres</h2>
+        <div id="theatreList">
+            <!-- Theatres loaded here -->
+            <p data-t="searchingTheatres">Loading...</p>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTheatres();
+        });
+    </script>
+</body>
+</html>

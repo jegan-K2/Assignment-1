@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Showlix</title>
+    <meta name="description" content="Showlix Admin Dashboard - Manage movies and theatres.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Showlix <span class="admin-badge">ADMIN</span></a>
+        <nav class="nav-links">
+            <a href="index.html" data-t="home">Home</a>
+            <a href="#" id="navLogout" data-t="logout">Logout</a>
+            <a href="#" id="langToggleBtn" style="font-size:0.85rem; opacity:0.8;">🌐</a>
+        </nav>
+    </header>
+
+    <div class="container" style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+        <div class="auth-container" style="margin: 0; width:420px; text-align:left;">
+            <h2 data-t="addMovie">Add New Movie</h2>
+            <form id="addMovieForm">
+                <div class="form-group">
+                    <label data-t="movieTitle">Movie Title</label>
+                    <input type="text" id="mTitle" required>
+                </div>
+                <div class="form-group">
+                    <label data-t="posterUrl">Poster Image URL</label>
+                    <input type="url" id="mPoster" required>
+                </div>
+                <div class="form-group">
+                    <label data-t="releaseDateLabel">Release Date</label>
+                    <input type="date" id="mReleaseDate" required>
+                </div>
+                <div class="form-group">
+                    <label data-t="rating">Rating (e.g., 4.5)</label>
+                    <input type="number" step="0.1" id="mRating" required>
+                </div>
+                <div class="form-group">
+                    <label data-t="language">Language</label>
+                    <select id="mLanguage" required>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Telugu">Telugu</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Kannada">Kannada</option>
+                        <option value="Malayalam">Malayalam</option>
+                        <option value="English">English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-t="description">Description</label>
+                    <textarea id="mDesc" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn" data-t="addMovieBtn">Add Movie</button>
+            </form>
+        </div>
+        
+        <div class="auth-container" style="margin: 0; width:420px; text-align:left;">
+            <h2 data-t="addTheatre">Add New Theatre</h2>
+            <form id="addTheatreForm">
+                <div class="form-group">
+                    <label data-t="theatreName">Theatre Name</label>
+                    <input type="text" id="tName" required>
+                </div>
+                <div class="form-group">
+                    <label data-t="districtLabel">District</label>
+                    <input type="text" id="tDistrict" placeholder="e.g., Kallakurichi" required>
+                </div>
+                
+                <div id="screensContainer">
+                    <div class="screen-config" style="border: 1px solid #444; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                        <h4>Screen 1</h4>
+                        <div class="form-group">
+                            <label data-t="screenName">Screen Name</label>
+                            <input type="text" class="sName" value="Screen 1" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-t="showTimings">Show Timings (comma separated)</label>
+                            <input type="text" class="sTimings" placeholder="10:00 AM, 01:00 PM, 06:00 PM" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="addScreenBtn" class="btn" style="background:linear-gradient(135deg, #334155, #475569); margin-bottom: 10px; width: 100%;" data-t="addScreen">+ Add Another Screen</button>
+                <button type="submit" class="btn" data-t="addTheatreBtn">Add Theatre</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:20px;">
+        <div class="auth-container" style="margin: 0; width:420px; text-align:left;">
+            <h3 data-t="activeMovies">Active Movies</h3>
+            <div id="movieManageList" style="max-height: 300px; overflow-y: auto; margin-top:15px;">
+                <!-- Movies listed here -->
+            </div>
+        </div>
+        <div class="auth-container" style="margin: 0; width:420px; text-align:left;">
+            <h3 data-t="activeTheatres">Active Theatres</h3>
+            <div id="theatreManageList" style="max-height: 300px; overflow-y: auto; margin-top:15px;">
+                <!-- Theatres listed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAdmin();
+        });
+    </script>
+</body>
+</html>

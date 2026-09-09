@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets | Showlix</title>
+    <meta name="description" content="View and download your booked movie tickets.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Showlix</a>
+        <nav class="nav-links">
+            <a href="index.html" data-t="home">Home</a>
+            <a href="#" id="navLogout" data-t="logout">Logout</a>
+            <a href="#" id="langToggleBtn" style="font-size:0.85rem; opacity:0.8;">🌐</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title" data-t="myTicketsTitle">My Tickets</h2>
+        <div id="ticketsList">
+            <!-- Tickets loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTickets();
+        });
+    </script>
+</body>
+</html>

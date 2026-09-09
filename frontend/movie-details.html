@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details | Showlix</title>
+    <meta name="description" content="View movie details and book tickets on Showlix.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Showlix</a>
+        <nav class="nav-links">
+            <a href="index.html" data-t="home">Home</a>
+            <a href="mytickets.html" id="navTickets" style="display:none;" data-t="myTickets">My Tickets</a>
+            <a href="#" id="langToggleBtn" style="font-size:0.85rem; opacity:0.8;">🌐</a>
+        </nav>
+    </header>
+
+    <section class="details-hero" id="movieHero">
+        <img src="" alt="Poster" class="details-poster" id="moviePoster">
+        <div class="details-info">
+            <h1 class="details-title" id="movieTitle">Loading...</h1>
+            <div class="details-rating" id="movieRating">⭐ 0.0</div>
+            <p id="movieReleaseDate" style="color:var(--text-muted); margin-bottom:10px;"></p>
+            <p class="details-desc" id="movieDesc"></p>
+
+            <div class="location-form">
+                <h3 style="margin-bottom:15px;" data-t="selectDistrict">Tamil Nadu - Select District</h3>
+                <div class="form-group" style="display:none;">
+                    <label data-t="state">State</label>
+                    <select id="stateSelect" required>
+                        <option value="Tamil Nadu" selected>Tamil Nadu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-t="district">District</label>
+                    <select id="districtSelect" required>
+                        <option value="" data-t="selectDistrictOption">Select District</option>
+                    </select>
+                </div>
+                <button class="btn" id="nextToTheatreBtn" data-t="next">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMovieDetails();
+            setupLocationDropdowns();
+        });
+    </script>
+</body>
+</html>
